@@ -21,5 +21,5 @@ bower install --save mccxiv/nwjs-preserve-window-state
 ### Use
 ```HTML
 <!-- Add to main html file -->
-<script src="bower_components/nwjs-preserve-window-state/winstate.js></script>
+<script src="bower_components/nwjs-preserve-window-state/winstate.js"></script>
 ```
