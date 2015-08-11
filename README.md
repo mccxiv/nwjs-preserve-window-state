@@ -1,7 +1,7 @@
-NW.js does not save window size and location, this script aims to solve that by saving state using LocalStorage.
-I did not write the original script, I merely tweaked it.
+NW.js does not save window size and location, this script aims to solve that by saving state using LocalStorage.  
+I did not write the original script, I merely tweaked it.  
 
-Original source: https://github.com/nwjs/nw.js/wiki/Preserve-window-state-between-sessions
+Original source: https://github.com/nwjs/nw.js/wiki/Preserve-window-state-between-sessions  
 Original contributors: https://github.com/nwjs/nw.js/wiki/Preserve-window-state-between-sessions/_history
 
 ### Prepare
