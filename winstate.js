@@ -1,4 +1,4 @@
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 	/**
 	 * https://github.com/mccxiv/nwjs-preserve-window-state
@@ -36,7 +36,7 @@
 	 *
 	 * 2015-08-10
 	 * - Don't quit the app on the close event, let the user handle that
-	 * - Wrap in a closure
+	 * - Wrap in 'DOMContentLoaded' event, so it works regardless of load order
 	 * - Save as the changes happen, not on quit
 	 */
 
@@ -169,4 +169,4 @@
 	win.on('close', function () {
 		dumpWindowState();
 	});
-})();
+});
