@@ -1,6 +1,9 @@
 (function() {
 	'use strict';
 	/**
+	 * https://github.com/mccxiv/nwjs-preserve-window-state
+	 *
+	 * Original text:
 	 * https://github.com/nwjs/nw.js/wiki/Preserve-window-state-between-sessions
 	 *
 	 * Cross-platform window state preservation.
@@ -68,7 +71,6 @@
 	}
 
 	function dumpWindowState() {
-		console.log('dumping');
 		if (!winState) {
 			winState = {};
 		}
