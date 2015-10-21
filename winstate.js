@@ -40,14 +40,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	 * - Save as the changes happen, not on quit
 	 */
 
-	var nwjs = nw && nw.require? nw : require('nw.gui');
+	var nwjs = nw? nw : require('nw.gui');
+	var frame = nw? nw.require('./package.json').window.frames : nwjs.App.manifest.window.frame;
 	var win = nwjs.Window.get();
 	var winState;
 	var currWinMode;
 	var resizeTimeout;
 	var isMaximizationEvent = false;
 	// extra height added in linux x64 gnome-shell env, use it as workaround
-	var deltaHeight = nwjs.App.manifest.window.frame ? 0 : 'disabled';
+	var deltaHeight = frame ? 0 : 'disabled';
 
 	function initWindowState() {
 		// Don't resize the window when using LiveReload.
