@@ -51,25 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	var deltaHeight = frame ? 0 : 'disabled';
 
 	function initWindowState() {
-		// Don't resize the window when using LiveReload.
-		// There seems to be no way to check whether a window was reopened, so let's
-		// check for dev tools - they can't be open on the app start, so if
-		// dev tools are open, LiveReload was used.
-		/*if (!win.isDevToolsOpen()) {
-			winState = JSON.parse(localStorage.windowState || 'null');
-
-			if (winState) {
-				currWinMode = winState.mode;
-				if (currWinMode === 'maximized') win.maximize();
-				else restoreWindowState();
-			} else {
-				currWinMode = 'normal';
-				dumpWindowState();
-			}
-
-			win.show();
-		}*/
-
 		winState = JSON.parse(localStorage.windowState || 'null');
 
 		if (winState) {
@@ -99,10 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		// when window is maximized you want to preserve normal
 		// window dimensions to restore them later (even between sessions)
 		if (currWinMode === 'normal') {
-			winState.x = win.x;
-			winState.y = win.y;
-			winState.width = win.width;
-			winState.height = win.height;
+			var current = win.appWindow.getBounds();
+			winState.left = current.left;
+			winState.top = current.top;
+			winState.width = current.width;
+			winState.height = current.height;
 
 			// save delta only of it is not zero
 			if (deltaHeight !== 'disabled' && deltaHeight !== 0 && currWinMode !== 'maximized') {
@@ -121,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			winState.height = winState.height - deltaHeight;
 		}
 
-		win.resizeTo(winState.width, winState.height);
-		win.moveTo(winState.x, winState.y);
+		win.appWindow.resizeTo(winState.width, winState.height);
+		win.appWindow.moveTo(winState.left, winState.top);
 	}
 
 	initWindowState();
