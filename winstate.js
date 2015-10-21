@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	 * - Save as the changes happen, not on quit
 	 */
 
-	var nwjs = nw? nw : require('nw.gui');
-	var frame = nw? nw.require('./package.json').window.frames : nwjs.App.manifest.window.frame;
+	var nwjs = nw;
+	var frame = nwjs.require('./package.json').window.frames;
 	var win = nwjs.Window.get();
 	var winState;
 	var currWinMode;
