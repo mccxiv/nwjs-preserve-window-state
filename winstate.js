@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	 * - Save as the changes happen, not on quit
 	 */
 
-	var gui = require('nw.gui');
+	var gui = nw && nw.require? nw.require('nw.gui') : require('nw.gui');
 	var win = gui.Window.get();
 	var winState;
 	var currWinMode;
